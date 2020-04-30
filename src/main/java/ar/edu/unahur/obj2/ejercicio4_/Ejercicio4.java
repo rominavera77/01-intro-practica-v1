@@ -22,14 +22,14 @@ public class Ejercicio4 {
         return entrada.nextInt();
     }
 
-    public static int ingresarLaCantidadDeAlumnosDeLaClase() {
+    public static int ingresarLaCantidadDeAlumnnos() {
         mostrarEnPantalla("Escriba el número de alumnos: ");
         return leerCantidadDeAlumnosTeclado();
     }
 
     public static String[] leerNombreYApellidoDeTeclado() {
         Scanner nombre = new Scanner(System.in);
-        for(int i=0; i<ingresarLaCantidadDeAlumnosDeLaClase(); i++) {
+        for(int i=0; i<ingresarLaCantidadDeAlumnnos(); i++) {
             nombre.nextInt();
         }
         return new String[]{nombre.next()};
@@ -63,7 +63,7 @@ public class Ejercicio4 {
     }
 
     public static void main(String[] args) {
-        int cantidadDeAlumnos = ingresarLaCantidadDeAlumnosDeLaClase();
+        int cantidadDeAlumnos = ingresarLaCantidadDeAlumnnos();
         String[] personas = leerNombreYApellidoDeTeclado();
         String letra = leerLetraDeTeclado();
         List<String> nombresFiltrados = filtrarNombres(leerNombreYApellidoDeTeclado(), letra);

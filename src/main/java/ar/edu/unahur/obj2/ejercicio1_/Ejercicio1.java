@@ -34,7 +34,7 @@ public class Ejercicio1 {
 
     public static List<Integer> InvertirListaIngresada(int[] arreglo) {
         List<Integer> listaInvertida= new LinkedList<>();
-        for (int i=10; i>arreglo.length; i--) {
+        for (int i=9; i>arreglo.length; i--) {
             listaInvertida.add(arreglo[i]);
         }
         return listaInvertida;

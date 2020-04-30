@@ -5,28 +5,26 @@ package ar.edu.unahur.obj2.ejercicio3_;
 //
 //Usando los datos contenidos en el array, calcula la temperatura media, la máxima y la mínima.
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Ejercicio3 {
 
     public static void main(String[] args) {
-        float[] temperaturas =leerTemperaruras();
-        float maxima = calcularLaMaxima(temperaturas);
-        float minima = calcularLaMinima(temperaturas) ;
-        float media = calcularLaMedia(temperaturas);
-        mostrarEnPantallaElGrafico(temperaturas);
+        Double [] temperaturas =leerTemperaruras();
+        mostrarEnPantallaElGrafico(Double [] temperaturas);
 
     }
 
     public static void mostrarEnPantalla(String mensaje) { System.out.print(mensaje);}
 
-    public static float leerTemperaturasDeTeclado() {
+    public static double leerTemperaturasDeTeclado() {
         Scanner entrada = new Scanner(System.in);
-        return entrada.nextInt();
+        return entrada.nextDouble();
     }
-    public static float[] leerTemperaruras() {
-        float[] lista = new float[24];
+    public static Double[] leerTemperaruras() {
+        Double[] lista = new Double[24];
         mostrarEnPantalla("Ingrese las temperaturas cada hora:");
         for(int i=0;i<24;i++){
             lista[i] = leerTemperaturasDeTeclado();
@@ -34,26 +32,26 @@ public class Ejercicio3 {
         return lista;
     }
 
-    public static float calcularLaMedia(float[] lista) {
-       float suma = 0;
+    public static double calcularLaMedia(double[] lista) {
+       double suma = 0;
        for(int i=0;i<lista.length;i++) {
-           suma = suma + lista.get(i);
+           suma = suma + lista[i];
        }
        return suma/24;
     }
 
-    public static float calcularLaMaxima(float[] lista) {
-        float maximo = 0;
+    public static double calcularLaMaxima(double[] lista) {
+        double maximo = 0;
         for(int i=0; i<lista.length; i++) {
-            if(lista[i] > maximo){
+            if (lista[i] >maximo){
                 maximo = lista[i];
             }
         }
         return maximo;
     }
 
-    public static float calcularLaMinima(float[] lista) {
-        float minimo = 0;
+    public static double calcularLaMinima(double[] lista) {
+        double minimo = 0;
         for(int i=0; i<lista.length; i++) {
             if(lista[i] < minimo){
                 minimo = lista[i];
@@ -62,11 +60,24 @@ public class Ejercicio3 {
         return minimo;
     }
 
-    public static void mostrarEnPantallaElGrafico(float[] lista) {
-        for(int i=0; i<lista.size(); i++) {
-            System.out.print(i +"*");
+    public static void mostrarEnPantallaElGrafico(double[] lista) {
+        actual = lista.get(i);
+        for(int i=0; i<lista.length; i++) {
+            //Imprime la hora
+            System.out.print(i);
         }
-        mostrarEnPantalla("Media: "+media);
+            // Imprime el gráfico
+        for(int j=0; j<int(actual); j++) {
+            System.out.print("*");
+        }
+        if(actual == calcularLaMaxima(lista)) {
+            mostrarEnPantalla( "--> Maxima");
+        }
+        else if (actual == calcularLaMinima(lista)) {
+            mostrarEnPantalla("--> Minima");
+        }
+        else { System.out.println(actual);}
+        mostrarEnPantalla("Media: "+calcularLaMedia(lista));
     }
 
 
