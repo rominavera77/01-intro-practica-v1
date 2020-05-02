@@ -12,8 +12,8 @@ import java.util.Scanner;
 public class Ejercicio3 {
 
     public static void main(String[] args) {
-        Double [] temperaturas =leerTemperaruras();
-        mostrarEnPantallaElGrafico(Double [] temperaturas);
+        double[] temperaturas =leerTemperaruras();
+        mostrarEnPantallaElGrafico(temperaturas);
 
     }
 
@@ -23,8 +23,8 @@ public class Ejercicio3 {
         Scanner entrada = new Scanner(System.in);
         return entrada.nextDouble();
     }
-    public static Double[] leerTemperaruras() {
-        Double[] lista = new Double[24];
+    public static double[] leerTemperaruras() {
+        double[] lista = new double[24];
         mostrarEnPantalla("Ingrese las temperaturas cada hora:");
         for(int i=0;i<24;i++){
             lista[i] = leerTemperaturasDeTeclado();
@@ -60,26 +60,28 @@ public class Ejercicio3 {
         return minimo;
     }
 
+
     public static void mostrarEnPantallaElGrafico(double[] lista) {
-        actual = lista.get(i);
-        for(int i=0; i<lista.length; i++) {
+        for(int i = 0; i < lista.length; i++) {
+            double actual = lista[i];
+
             //Imprime la hora
             System.out.print(i);
-        }
-            // Imprime el gráfico
-        for(int j=0; j<int(actual); j++) {
-            System.out.print("*");
-        }
-        if(actual == calcularLaMaxima(lista)) {
-            mostrarEnPantalla( "--> Maxima");
-        }
-        else if (actual == calcularLaMinima(lista)) {
-            mostrarEnPantalla("--> Minima");
-        }
-        else { System.out.println(actual);}
-        mostrarEnPantalla("Media: "+calcularLaMedia(lista));
-    }
 
+            // Imprime el gráfico
+            for (int j = 0; j < (int)actual; j++){
+                System.out.print("*");
+            }
+            if (actual == calcularLaMaxima(lista)) {
+                mostrarEnPantalla("--> Maxima");
+            } else if (actual == calcularLaMinima(lista)) {
+                mostrarEnPantalla("--> Minima");
+            } else {
+                System.out.println(actual);
+            }
+            mostrarEnPantalla("Media: " + calcularLaMedia(lista));
+        }
+    }
 
 
 }

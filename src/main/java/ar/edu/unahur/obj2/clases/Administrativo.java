@@ -20,8 +20,7 @@ public class Administrativo  extends Empleado{
 
     @Override
     public float getSueldo() {
-        sueldo +=((hsExtra * 1.5)+hsMes) / hsMes;
-        return sueldo;
+        return super.getSueldo() +((hsExtra * 1.5f)+hsMes) / hsMes;
     }
 
 

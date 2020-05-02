@@ -20,7 +20,6 @@ public class Vendedor {
     }
 
     public float getSueldo() {
-        sueldoBase += (porcentajeComision * totalVentas)/100;
-        return sueldoBase;
+        return getSueldo() + (porcentajeComision * totalVentas)/100;
     }
 }

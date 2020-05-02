@@ -24,6 +24,7 @@ public class Ejercicio6 {
 
     public static int[]  leerElementosDeLaMatriz() {
        int[] lista= new int[9];
+
         mostrarEnPantalla("Ingrese los numeros de la matriz 3x3: ");
        for(int i=0; i<9; i++) {
           lista [i] = leerNumerosDeTeclado();
@@ -33,10 +34,13 @@ public class Ejercicio6 {
 
     public static void mostrarLaMatriz(int[] lista) {
         mostrarEnPantalla("La matriz es: ");
-        for(int i=0; i<9; i++)
-            for (int j = 0; j < 9; j++) {
-                System.out.format("%01d", lista);
-            }
+        System.out.println();
+        int puntero = 0;
+        for (int j = puntero; j < 9; j++) {
+            System.out.format("%01d ", lista[j]);
+            if ((j+1)%3==0)
+                System.out.println();
+        }
     }
 
 
